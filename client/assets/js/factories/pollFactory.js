@@ -12,6 +12,8 @@ app.factory('pollFactory', ['$http', function($http){
             callback({'Success': returnedData.data.Success});
           };
         };
+      }).catch(function(e){
+        console.log(e);
       });
     };
 
@@ -26,6 +28,8 @@ app.factory('pollFactory', ['$http', function($http){
             callback({'Success': returnedData.data.Success});
           };
         };
+      }).catch(function(e){
+        console.log(e);
       });
     };
 
@@ -41,6 +45,8 @@ app.factory('pollFactory', ['$http', function($http){
             callback({'Success': returnedData.data.Success});
           };
         };
+      }).catch(function(e){
+        console.log(e);
       });
     };
 
@@ -57,6 +63,8 @@ app.factory('pollFactory', ['$http', function($http){
             callback({'Success': returnedData.data.Success});
           };
         };
+      }).catch(function(e){
+        console.log(e);
       });
      };
 
@@ -65,6 +73,8 @@ app.factory('pollFactory', ['$http', function($http){
         if(typeof(callback)=='function'){
           callback(returnedData.data);
         };
+      }).catch(function(e){
+        console.log(e);
       });
     };
 

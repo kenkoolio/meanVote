@@ -13,7 +13,9 @@ app.factory('userFactory', ['$http', function($http){
             callback({'Success': returnedData.data.user});
           };
         };
-      });
+      }).catch(function(e){
+        console.log(e);
+      };
     };
 
     this.create = function(User, callback){
@@ -27,6 +29,8 @@ app.factory('userFactory', ['$http', function($http){
             callback({'Success': returnedData.data.user});
           };
         };
+      }).catch(function(e){
+        console.log(e);
       });
     };
   };
