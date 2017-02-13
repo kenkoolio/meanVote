@@ -1,17 +1,18 @@
 <div class='container'>
-  <div class='row'>
-    <div class='buttons pull-right'>
-      <button class='btn btn-success' ng-click='new()'>Create a New Poll</button>
-      <button class='btn btn-danger' ng-click='logout()'>Logout</button>
-    </div><!-- buttons-->
-  </div><!-- row -->
 
   <div class='headers'>
     <div class='row'>
-      <h2>Current Polls</h2>
-      <input class='pull-right' type='text' ng-model='filter' placeholder='Search'>
+      <h2>Current Surveys</h2>
+      <div class='buttons pull-right'>
+        <button class='btn btn-success' ng-click='new()'>Create a New Poll</button>
+        <button class='btn btn-danger' ng-click='logout()'>Logout</button>
+      </div><!-- buttons-->
     </div><!-- row -->
   </div><!-- header -->
+
+  <div class='row searchBarDiv'>
+    <input class='pull-right' type='text' ng-model='filter' placeholder='Search'>
+  </div><!-- row -->
 
   <div class='pollsTable'>
     <div class='row'>
@@ -29,13 +30,16 @@
           <tbody>
             <tr ng-repeat="poll in allPolls | filter:filter">
               <td ng-init='pollId = poll._id'>{{poll._user.first_name}}</td>
-              <td><a ng-href='#/show/{{pollId}}' >{{poll.question}}</a></td>
+              <td><a ng-href='#!/show/{{pollId}}' >{{poll.question}}</a></td>
               <td>{{poll.created_at | date}}</td>
-              <td><span ng-if='poll._user._id == userInSession._id'><button class='btn btn-danger' ng-click='delete(pollId)'>Delete</button></span></td>
+              <td><span ng-if='poll._user._id == userInSession._id'>
+                    <button class='btn btn-danger' ng-click='delete(pollId)'>Delete</button>
+                  </span>
+              </td>
             </tr>
           </tbody>
         </table>
       </div><!-- if all polls -->
-    </div>
-  </div>
-</div>
+    </div><!-- row -->
+  </div><!-- polls table -->
+</div><!-- container -->
