@@ -1,7 +1,6 @@
 app.controller('loginController', ['$scope', 'userFactory', '$location', '$cookies',  function($scope, userFactory, $location, $cookies){
 
   $scope.userInSession = $cookies.getObject('user');
-  console.log($scope.userInSession);
 
   // if ($location.url() == '/results' && typeof($scope.userInSession)=='undefined'){
   //   $location.url('/');
