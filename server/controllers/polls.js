@@ -33,24 +33,34 @@ function PollsController(){
     //   newOption[i]._poll = newPoll;
     // };
 
-    var option1 = {
-          text: req.body.option1,
-          votes: 0
-        },
-        option2 = {
-          text: req.body.option2,
-          votes: 0
-        },
-        option3 = {
-          text: req.body.option3,
-          votes: 0
-        },
-        option4 = {
-          text: req.body.option4,
-          votes: 0
-        };
+    // var option1 = {
+    //       text: req.body.option1,
+    //       votes: 0
+    //     },
+    //     option2 = {
+    //       text: req.body.option2,
+    //       votes: 0
+    //     },
+    //     option3 = {
+    //       text: req.body.option3,
+    //       votes: 0
+    //     },
+    //     option4 = {
+    //       text: req.body.option4,
+    //       votes: 0
+    //     };
+    //
+    // newPoll.options.push(option1, option2, option3, option4);
 
-    newPoll.options.push(option1, option2, option3, option4);
+
+    for (var i=1; i<5; i++){
+      var option = {
+        text: eval("req.body.option"+i),
+        votes: 0
+      };
+
+      newPoll.options.push(option);
+    };
 
     newPoll.save(function(err, poll){
      if(err){
@@ -72,7 +82,7 @@ function PollsController(){
     });
   };
 
-  // update a poll's vote option
+  // update a poll's option's vote count
   this.vote = function(req, res){
     var optionId = req.params.id;
 
@@ -82,7 +92,7 @@ function PollsController(){
         res.json({'Error:': err});
       } else {
         res.json({'Success:': poll});
-        //does not really return anything import -- just the poll in question
+        //does not really return anything import -- just the status of the operation
       };
     });
 

@@ -84,6 +84,7 @@ app.controller('pollsController', ['$scope', 'pollFactory', '$cookies', '$locati
     $location.url('/show'+pollId);
   }
 
+  // this did not work because I was trying to persist data, while doing a location.reload() inside of a controller -- not the function of a controller to persist data, that is what the factory is for
   // $scope.getOne = function(pollId){
   //
   //

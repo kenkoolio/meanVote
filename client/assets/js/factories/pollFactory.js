@@ -1,8 +1,6 @@
 app.factory('pollFactory', ['$http', function($http){
+
   function PollFactory(){
-
-
-
     this.index = function(callback){
       $http.get('/polls').then(function(returnedData){
         if(typeof(returnedData.data.Error) !== 'undefined'){
@@ -16,7 +14,6 @@ app.factory('pollFactory', ['$http', function($http){
         };
       });
     };
-
 
     this.create = function(newPollData, callback){
       $http.post('/polls', newPollData).then(function(returnedData){
@@ -39,11 +36,10 @@ app.factory('pollFactory', ['$http', function($http){
           if(typeof(callback)=='function'){
             callback({'Error': returnedData.data.Error});
           };
-        }
-        else {
-            if(typeof(callback)=='function'){
-                callback({'Success': returnedData.data.Success});
-              };
+        } else if (typeof(returnedData.data.Success)!=='undefined'){
+          if(typeof(callback)=='function'){
+            callback({'Success': returnedData.data.Success});
+          };
         };
       });
     };
@@ -56,14 +52,13 @@ app.factory('pollFactory', ['$http', function($http){
           if(typeof(callback)=='function'){
             callback({'Error': returnedData.data.Error});
           };
-        }
-        else if(typeof(returnedData.data.Success)!=='undefined'){
-              if(typeof(callback)=='function'){
-                callback({'Success': returnedData.data.Success});
-              };
+        } else if(typeof(returnedData.data.Success)!=='undefined'){
+          if(typeof(callback)=='function'){
+            callback({'Success': returnedData.data.Success});
+          };
         };
       });
-    };
+     };
 
     this.vote = function(optionId, callback){
       $http.get('/vote/'+optionId).then(function(returnedData){

@@ -1,1 +1,20 @@
+div.headers {
+  margin-bottom: 20px;
+}
 
+  div.headers h2 {
+    display: inline-block;
+  }
+
+.buttons {
+  margin-top: 23px;
+  display: inline-block;
+}
+
+.searchBarDiv {
+  margin-bottom: 30px;
+}
+
+  .searchBarDiv input {
+    width: 208.5px;
+  }
