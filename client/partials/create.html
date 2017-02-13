@@ -1,0 +1,47 @@
+<div class='container'>
+  <div class='headers'>
+    <div class='row'>
+      <h3>Put the question and options here:</h3>
+      <button class='pull-right' ng-click='home()'>Cancel</button>
+    </div><!-- row -->
+  </div><!-- headers -->
+
+  <div ng-if='badErrors'>
+    <div class='row'>
+      <p ng-repeat='error in badErrors track by $index' ng-bind='error'></p>
+    </div><!-- row -->
+  </div><!-- if bad errors -->
+
+  <div class='row'>
+    <div class='pollForm'>
+      <form ng-submit='create()' novalidate>
+        <div class='form-group'>
+          <label for='question'>Question</label>
+          <input class='form-control' type='text' id='question' ng-model='newPoll.question' required>
+        </div><!-- form group -->
+
+        <div class='form-group'>
+          <label for='option1'>Option 1</label>
+          <input class='form-control' type='text' id='option1' ng-model='newPoll.option1' required>
+        </div><!-- form group -->
+
+        <div class='form-group'>
+          <label for='option2'>Option 2</label>
+          <input class='form-control' type='text' id='option2' ng-model='newPoll.option2' required>
+        </div><!-- form group -->
+
+        <div class='form-group'>
+          <label for='option3'>Option 3</label>
+          <input class='form-control' type='text' id='option3' ng-model='newPoll.option3' required>
+        </div><!-- form group -->
+
+        <div class='form-group'>
+          <label for='option4'>Option 4</label>
+          <input class='form-control' type='text' id='option4' ng-model='newPoll.option4' required>
+        </div><!-- form group -->
+
+        <input class='btn btn-lg btn-success pull-right' type='submit' value='Create Poll'>
+      </form>
+    </div><!-- poll form-->
+  </div><!-- row-->
+</div>
