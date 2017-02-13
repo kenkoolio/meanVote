@@ -15,6 +15,7 @@ function UsersController() {
 
       User.findOne({email: email}, function(err, user){
         if(err){
+          console.log("Error here --> ", err);
           res.json({'error': err});
         } else if(user && user.validPassword(password)) {
           res.json({'user': user});
