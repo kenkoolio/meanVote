@@ -15,7 +15,7 @@ app.factory('userFactory', ['$http', function($http){
         };
       }).catch(function(e){
         console.log(e);
-      };
+      });
     };
 
     this.create = function(User, callback){
